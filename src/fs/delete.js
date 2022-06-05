@@ -1,3 +1,13 @@
+import * as fs from "fs";
+
 export const remove = async () => {
-    // Write your code here 
+    const path = "./files/fileToRemove.txt";
+    if (fs.existsSync(path)) {
+        fs.unlink(path, (error) => {
+            if (error) throw new Error("Some error occured");
+        });
+    }
+    else throw new Error("FS operation failed");
 };
+
+remove();

@@ -1,3 +1,17 @@
+import * as fs from "fs";
+
 export const create = async () => {
-    // Write your code here 
+    const data = "I am fresh and young";
+    const path = "./files/fresh.txt";
+    fs.access(path, (error) => {
+        if (error) {
+            fs.writeFile(path, data, (error) => {
+                if (error) throw new Error("Some error occured");
+            });
+        }
+        else throw new Error("FS operation failed");
+    });
+    
 };
+
+create();
