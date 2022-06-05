@@ -15,7 +15,7 @@ export const copy = async () => {
             if (data.length > 0) {
                 data.forEach(e => {
                     fs.copyFile(originalPath.concat(e), newPath.concat(e), (error) => {
-                        if (error) throw new Error("!!!");
+                        if (error) throw new Error("FS operation failed");
                     })
                 })
             }

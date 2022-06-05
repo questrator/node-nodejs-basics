@@ -6,7 +6,7 @@ export const create = async () => {
     fs.access(path, (error) => {
         if (error) {
             fs.writeFile(path, data, (error) => {
-                if (error) throw new Error("Some error occured");
+                if (error) throw new Error("FS operation failed");
             });
         }
         else throw new Error("FS operation failed");
