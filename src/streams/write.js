@@ -2,10 +2,12 @@ import fs from "fs";
 
 export const write = async () => {
     const path = "./files/fileToWrite.txt";
+    const wStream = fs.createWriteStream(path);
     process.stdin.on("data", (data) => {
-        console.log(data);
+        wStream.write(data);
     });
 
-    //const output = fs.createWriteStream(path, "utf-8");
    
 }
+
+write();
